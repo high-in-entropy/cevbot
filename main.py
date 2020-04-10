@@ -110,7 +110,7 @@ def helpp(update, context):
         
 1. /help - Will display set of commands you can use.
 
-2. /latest - Will fetch a list of 4 recently published blogs on CEV Website.
+2. /latest - Will fetch a list of 5 recently published blogs on CEV Website.
 
 3. /resources - A well maintained repository of some wonderful resources pertaining to a wide variety of fields.
 
@@ -121,7 +121,7 @@ Example, /blog blockchain will fetch blogs related to blockchain.
     context.bot.send_message(chat_id=update.effective_chat.id, text = text)
 
 def main():
-    TOKEN = "1166286480:AAESHLsx_nU3N28HAZEYeyx20mJST8CbnFI"
+    TOKEN = "Your API TOKEN here."
     PORT = int(os.environ.get('PORT', '8443'))
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
@@ -138,7 +138,7 @@ def main():
     dp.add_handler(resources_handler)
     dp.add_handler(latest_handler)
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
-    updater.bot.set_webhook("https://cev-bot.herokuapp.com/" + TOKEN)
+    updater.bot.set_webhook("https://<heroku app name>.herokuapp.com/" + TOKEN)
     updater.idle()
 
 if __name__ == '__main__':
